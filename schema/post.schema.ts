@@ -6,10 +6,25 @@ export class Post {
   title: string;
 
   @Prop()
-  content: string;
+  description: string;
 
   @Prop()
-  date: Date;
+  private: boolean;
+
+  @Prop()
+  comments: [
+    {
+      user_id: string;
+      body: string;
+      date: Date;
+    },
+  ];
+
+  @Prop()
+  meta: {
+    votes: number;
+    favs: number;
+  };
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);

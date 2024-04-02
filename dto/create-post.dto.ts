@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsNumber, IsString, MaxLength } from 'class-validator';
+import {
+  IsArray,
+  IsBoolean,
+  IsNotEmpty,
+  IsObject,
+  IsString,
+  MaxLength,
+} from 'class-validator';
 
 export class CreatePostDto {
   @IsString()
@@ -8,9 +15,26 @@ export class CreatePostDto {
 
   @IsString()
   @IsNotEmpty()
-  content: string;
+  description: string;
 
-  @IsNumber()
+  @IsBoolean()
   @IsNotEmpty()
-  userId: number;
+  private: boolean;
+
+  @IsArray()
+  @IsNotEmpty()
+  comments: [
+    {
+      user_id: string;
+      body: string;
+      date: Date;
+    },
+  ];
+
+  @IsObject()
+  @IsNotEmpty()
+  meta: {
+    votes: number;
+    favs: number;
+  };
 }
