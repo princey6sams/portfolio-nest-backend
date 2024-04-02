@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
 @Schema()
-export class Post {
+export class Post extends Document {
   @Prop()
   title: string;
 
@@ -11,16 +12,23 @@ export class Post {
   @Prop()
   private: boolean;
 
-  @Prop()
-  comments: [
+  @Prop([
     {
-      user_id: string;
-      body: string;
-      date: Date;
+      user_id: { type: String },
+      body: { type: String },
+      date: { type: Date },
     },
-  ];
+  ])
+  comments: Array<{
+    user_id: string;
+    body: string;
+    date: Date;
+  }>;
 
-  @Prop()
+  @Prop({
+    votes: { type: Number },
+    favs: { type: Number },
+  })
   meta: {
     votes: number;
     favs: number;
