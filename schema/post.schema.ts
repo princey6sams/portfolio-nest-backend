@@ -1,4 +1,4 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 @Schema()
@@ -12,27 +12,24 @@ export class Post extends Document {
   @Prop()
   private: boolean;
 
-  @Prop([
-    {
-      user_id: { type: String },
-      body: { type: String },
-      date: { type: Date },
-    },
-  ])
-  comments: Array<{
-    user_id: string;
-    body: string;
-    date: Date;
-  }>;
+  @Prop(
+    raw([
+      {
+        user_id: { type: String },
+        body: { type: String },
+        date: { type: Date },
+      },
+    ]),
+  )
+  comments: Array<Record<string, string | Date>>;
 
-  @Prop({
-    votes: { type: Number },
-    favs: { type: Number },
-  })
-  meta: {
-    votes: number;
-    favs: number;
-  };
+  @Prop(
+    raw({
+      votes: { type: Number },
+      favs: { type: Number },
+    }),
+  )
+  meta: Record<string, number>;
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);
