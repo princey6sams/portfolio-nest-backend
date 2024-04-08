@@ -21,8 +21,10 @@ export class CreatePostDto {
   @IsNotEmpty()
   private: boolean;
 
+  @IsString()
+  imgName: string;
+
   @IsArray()
-  @IsNotEmpty()
   comments: [
     {
       user_id: string;
@@ -32,7 +34,6 @@ export class CreatePostDto {
   ];
 
   @IsObject()
-  @IsNotEmpty()
   meta: {
     votes: number;
     favs: number;

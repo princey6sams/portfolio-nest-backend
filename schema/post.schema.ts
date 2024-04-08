@@ -12,6 +12,9 @@ export class Post extends Document {
   @Prop()
   private: boolean;
 
+  @Prop()
+  imgName?: string;
+
   @Prop(
     raw([
       {
@@ -21,7 +24,7 @@ export class Post extends Document {
       },
     ]),
   )
-  comments: Array<Record<string, string | Date>>;
+  comments?: Array<Record<string, string | Date>>;
 
   @Prop(
     raw({
@@ -29,7 +32,7 @@ export class Post extends Document {
       favs: { type: Number },
     }),
   )
-  meta: Record<string, number>;
+  meta?: Record<string, number>;
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);

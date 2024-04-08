@@ -8,7 +8,7 @@ async function bootstrap() {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
-    optionsSuccessStatus: 204,
+    optionsSuccessStatus: 200,
   });
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(8000);
