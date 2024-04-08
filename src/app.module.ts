@@ -5,11 +5,15 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PostSchema } from 'schema/post.schema';
 import { PostService } from './post/post.service';
 import { PostController } from './post/post.controller';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb://localhost:27017/portfolio'),
     MongooseModule.forFeature([{ name: 'Post', schema: PostSchema }]),
+    AuthModule,
+    UsersModule,
   ],
   controllers: [AppController, PostController],
   providers: [AppService, PostService],
