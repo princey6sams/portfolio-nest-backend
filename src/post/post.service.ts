@@ -7,7 +7,7 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class PostService {
-  constructor(@InjectModel('Post') private postModel: Model<IPost>) {}
+  constructor(@InjectModel('Post') private postModel: Model<IPost>) {} // Change to postdocument
 
   async createPost(createPostDto: CreatePostDto): Promise<IPost> {
     const createdPost = new this.postModel(createPostDto);
