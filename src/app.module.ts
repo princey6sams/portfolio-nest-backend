@@ -7,6 +7,7 @@ import { PostService } from './post/post.service';
 import { PostController } from './post/post.controller';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { HashService } from './hash/hash.service';
 
 @Module({
   imports: [
@@ -16,6 +17,6 @@ import { UsersModule } from './users/users.module';
     UsersModule,
   ],
   controllers: [AppController, PostController],
-  providers: [AppService, PostService],
+  providers: [AppService, PostService, HashService],
 })
 export class AppModule {}
