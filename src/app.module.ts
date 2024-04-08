@@ -6,7 +6,7 @@ import { PostSchema } from 'schema/post.schema';
 import { PostService } from './post/post.service';
 import { PostController } from './post/post.controller';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { UserModule } from './users/users.module';
 import { HashService } from './hash/hash.service';
 
 @Module({
@@ -14,7 +14,7 @@ import { HashService } from './hash/hash.service';
     MongooseModule.forRoot('mongodb://localhost:27017/portfolio'), // Replace this with actual MongoDB connection string later on, maybe use env file
     MongooseModule.forFeature([{ name: 'Post', schema: PostSchema }]),
     AuthModule,
-    UsersModule,
+    UserModule,
   ],
   controllers: [AppController, PostController],
   providers: [AppService, PostService, HashService],

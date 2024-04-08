@@ -1,9 +1,10 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 
 import { InjectModel } from '@nestjs/mongoose';
 import { CreateUserDto } from 'dto/create-user.dto';
 import { Model } from 'mongoose';
 import { User, UserDocument } from 'schema/user.schema';
+
 import { HashService } from 'src/hash/hash.service';
 
 @Injectable()
