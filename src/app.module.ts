@@ -10,7 +10,7 @@ import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/portfolio'),
+    MongooseModule.forRoot('mongodb://localhost:27017/portfolio'), // Replace this with actual MongoDB connection string later on, maybe use env file
     MongooseModule.forFeature([{ name: 'Post', schema: PostSchema }]),
     AuthModule,
     UsersModule,
