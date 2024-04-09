@@ -11,3 +11,6 @@ export class AuthController {
     return this.authService.login(req.user);
   }
 }
+
+// Implement logout and look into how to invalidate tokens
+// Also look into role based access control
