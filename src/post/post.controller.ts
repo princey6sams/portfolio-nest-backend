@@ -78,7 +78,7 @@ export class PostController {
     }
   }
 
-  @Get('/:postId')
+  @Get('/:postId') // convert to get by title, which is in service, similar to get user by username
   async getPostById(@Res() response, @Param('postId') postId: string) {
     try {
       const post = await this.postService.getPostById(postId);
