@@ -8,6 +8,7 @@ import { PostController } from './post/post.controller';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './users/users.module';
 import { HashService } from './hash/hash.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { HashService } from './hash/hash.service';
     MongooseModule.forFeature([{ name: 'Post', schema: PostSchema }]),
     AuthModule,
     UserModule,
+    ConfigModule.forRoot(),
   ],
   controllers: [AppController, PostController],
   providers: [AppService, PostService, HashService],

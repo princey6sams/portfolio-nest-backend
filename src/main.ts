@@ -11,6 +11,6 @@ async function bootstrap() {
     optionsSuccessStatus: 200,
   });
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(8000);
+  await app.listen(parseInt(process.env.PORT) || 8000);
 }
 bootstrap();
