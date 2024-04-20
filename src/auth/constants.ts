@@ -1,3 +1,4 @@
 export const jwtConstants = {
-  secret: 'p@ssw0rd!',
+  secret: 'princey6sams',
+  expiresIn: '2h',
 };

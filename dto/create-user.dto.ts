@@ -1,16 +1,37 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsEmail,
+  IsMongoId,
+  MinLength,
+} from 'class-validator';
+import { ObjectId } from 'mongoose';
 
 export class CreateUserDto {
-  @IsString()
-  @IsNotEmpty()
-  username: string;
-
-  //   @IsEmail()
-  //   email: string;
+  @IsMongoId()
+  readonly _id: ObjectId;
 
   @IsString()
   @IsNotEmpty()
-  password: string;
+  readonly username: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(6)
+  readonly password: string;
+
+  @IsString()
+  @IsEmail()
+  @IsNotEmpty()
+  readonly email: string;
+
+  @IsString()
+  @IsNotEmpty()
+  readonly name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  readonly role: string;
 
   //   @IsOptional()
   //   @IsNumber()

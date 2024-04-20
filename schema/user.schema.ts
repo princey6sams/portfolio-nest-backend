@@ -12,16 +12,20 @@ export class User extends Document {
     unique: true,
   })
   username: string;
+
   @Prop({
     required: true,
   })
   password: string;
+
   @Prop({
     unique: [true, 'Email already exists'],
   })
   email: string;
+
   @Prop()
   name: string;
+
   @Prop()
   role: string;
 }
