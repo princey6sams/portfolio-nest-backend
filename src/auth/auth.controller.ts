@@ -22,3 +22,4 @@ export class AuthController {
 // Also look into role based access control
 
 // Study in more detail and homogenize code...
+// Authorization next

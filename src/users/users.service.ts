@@ -25,12 +25,11 @@ export class UserService {
   async registerUser(createUserDto: CreateUserDto) {
     const createUser = new this.userModel(createUserDto);
 
-    const user = await this.getUserByUsername(createUser.username); // check if user exists
+    const user = await this.getUserByUsername(createUser.username);
     if (user) {
       throw new BadRequestException();
     }
 
-    // Hash Password
     createUser.password = await this.hashService.hashPassword(
       createUser.password,
     );
